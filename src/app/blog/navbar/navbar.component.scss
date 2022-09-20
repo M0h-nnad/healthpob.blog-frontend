@@ -1,0 +1,40 @@
+.space{
+  flex: 2;
+}
+a{
+  color:#bebebe;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 15px;
+}
+a:hover{
+  color:#5b5b5b;
+  text-decoration: none;
+}
+mat-toolbar{
+  // font-family: "Spartan" !important;
+  font-weight: 600 !important;
+}
+.active{
+  color: #000;
+}
+input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  padding-right: 33px;
+  height: 35px;
+  font-size: 15px;
+  // font-family: 'Roboto';
+  border-radius: 35px;
+  border: 1px solid #bebebe;
+}
+input[type="text"]:focus{
+  outline: 0px;
+}
+button{
+  position: relative;
+  left: 200px;
+}
+button:focus{
+  outline: 0px !important;
+}

@@ -1,0 +1,8 @@
+<nav class="navbar navbar-light" *ngIf="!isAuth">
+  <span class="navbar-brand">HealthPod Blog</span>
+  <span class="space"></span>
+  <ul class="nav-list">
+    <li><a routerLink="/system/login" *ngIf="!isAuth">Login</a></li>
+    <li><a routerLink="/system//signup" *ngIf="!isAuth">SignUp</a></li>
+  </ul>
+</nav>

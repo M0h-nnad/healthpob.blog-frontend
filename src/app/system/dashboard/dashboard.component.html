@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card gradient-purple-love">
+        <div class="card-content">
+          <div class="media p-4">
+            <div class="media-body">
+              <h3 class="fs-1 m-0 mb-2">
+                {{ dashboard?.numOfViews }}
+                <fa-icon [icon]="faEye" size="xs"></fa-icon>
+              </h3>
+              <span>Views</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card gradient-king-yna">
+        <div class="card-content">
+          <div class="media p-4">
+            <div class="media-body">
+              <h3 class="fs-1 m-0 mb-2">
+                {{ dashboard?.numOfShares }}
+                <fa-icon [icon]="faShare" size="xs"></fa-icon>
+              </h3>
+              <span>Shares</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 rounded pt-2">
+      <apx-chart
+        [series]="viewChartOptions?.series"
+        [chart]="viewChartOptions?.chart"
+        [title]="viewChartOptions?.title"
+        [yaxis]="viewChartOptions?.yAxis"
+        [xaxis]="viewChartOptions?.xAxis"
+      ></apx-chart>
+    </div>
+    <div class="col-md-6 rounded pt-2">
+      <apx-chart
+        [series]="sharesChartOptions?.series"
+        [chart]="sharesChartOptions?.chart"
+        [title]="sharesChartOptions?.title"
+        [yaxis]="sharesChartOptions?.yAxis"
+        [xaxis]="sharesChartOptions?.xAxis"
+      ></apx-chart>
+    </div>
+  </div>
+</div>

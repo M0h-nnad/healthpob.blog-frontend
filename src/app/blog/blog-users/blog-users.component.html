@@ -1,0 +1,21 @@
+<mat-spinner class="mx-auto my-auto"color="warn" *ngIf="isLoading"></mat-spinner>
+<div *ngIf="!isLoading">
+  <header>
+    <p>DOCTORS</p>
+    <input type="text" placeholder="Search" (keyup)="search($event)"/>
+  </header>
+  <div class="box">
+    <div class="card" *ngFor="let user of users">
+      <div class="imgBx">
+        <img [src]="user.imagePath || user.ImagePath " alt="images" />
+      </div>
+      <div class="details">
+        <h2 style="cursor: pointer;" (click)="openUser(user._id)">
+          {{ user.firstName + " " + user.lastName }}<br /><span>{{
+            user.specialty
+          }}</span>
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>

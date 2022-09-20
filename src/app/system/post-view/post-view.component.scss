@@ -1,0 +1,15 @@
+.container{
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+input[type="file"]{
+  visibility: hidden;
+}
+.image-preview {
+  height: 150px;
+  width: 150x;
+}
+.image-preview img{
+  height: 100%;
+}

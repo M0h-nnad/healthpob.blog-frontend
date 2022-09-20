@@ -1,0 +1,60 @@
+<!-- <section class="black"></section> -->
+<section class="image">
+  <div class="container form-container col-md-4 offset-md-4">
+    <h1 class="badge bg-primary">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="Login()">
+      <div class="mb-3">
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Enter Email"
+          required
+        />
+        <mat-error
+          *ngIf="
+            formControl.get('email').errors?.email &&
+            formControl.get('email').touched
+          "
+          >This Must Be An Email</mat-error
+        >
+        <mat-error
+          *ngIf="
+            formControl.get('email').errors?.required &&
+            formControl.get('email').touched
+          "
+          >This Field Required</mat-error
+        >
+      </div>
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Enter Password"
+          required
+        />
+        <mat-error
+          *ngIf="
+            formControl.get('password').errors?.required &&
+            formControl.get('password').touched
+          "
+          >This Field Required</mat-error
+        >
+      </div>
+      <div class="mb-2">
+        <span>You don't have account ? </span>
+        <a [routerLink]="'/system/signup'">Sign up</a>
+      </div>
+      <div class="mb-2">
+        <button
+          class="btn btn-primary btn-block"
+          type="submit"
+          [disabled]="formControl.invalid"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

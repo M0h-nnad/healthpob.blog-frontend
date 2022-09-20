@@ -1,0 +1,10 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer *ngIf="isAuth" [opened]="isOpened" mode="side">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <!-- <app-navbar></app-navbar> -->
+    <app-toolbar [isMobile]="isMobile" (toggle)="toggleSide($event)" *ngIf="isAuth"></app-toolbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

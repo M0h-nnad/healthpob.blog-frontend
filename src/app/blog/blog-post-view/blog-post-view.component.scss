@@ -1,0 +1,29 @@
+.post-container {
+  margin: 0 auto;
+  height: fit-content;
+  width: calc(100vw - 90px);
+}
+
+.post-header .title {
+  font-size: 50px;
+  line-height: 54px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.post-header .Post-Image {
+  display: block;
+  width: 80%;
+}
+.post-header div img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+}
+.post-header{
+  margin-bottom: 30px;
+}
+.post-container .post-content{
+  width: 100%;
+  word-break: break-all;
+}

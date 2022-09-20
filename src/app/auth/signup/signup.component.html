@@ -1,0 +1,128 @@
+<section class="image">
+  <div class="container form-container col-md-4 offset-md-4 pt-5">
+    <h1 class="badge bg-primary">SignUp</h1>
+    <form [formGroup]="signupForm" autocomplete="off" (ngSubmit)="signUp()">
+      <div class="mb-3">
+        <input
+          class="form-control"
+          required
+          type="text"
+          placeholder="First Name"
+          formControlName="firstName"
+        />
+        <mat-error
+          *ngIf="
+            formControl.get('firstName').errors?.required &&
+            formControl.get('firstName').touched
+          "
+          >This Field Required</mat-error
+        >
+      </div>
+      <div class="mb-3">
+        <input
+        class="form-control"
+        required
+        type="text"
+        placeholder="Last Name"
+        formControlName="lastName"
+      />
+      <mat-error
+        *ngIf="
+          formControl.get('lastName').errors?.required &&
+          formControl.get('lastName').touched
+        "
+        >This Field Required</mat-error
+      >
+      </div>
+      <div class="mb-3">
+        <input
+          class="form-control"
+          required
+          type="text"
+          placeholder="Specialty"
+          formControlName="specialty"
+        />
+        <mat-error
+          *ngIf="
+            formControl.get('specialty').errors?.required &&
+            formControl.get('specialty').touched
+          "
+          >This Field Required</mat-error
+        >
+      </div>
+      <div class="mb-3">
+        <input
+          class="form-control"
+          required
+          type="number"
+          placeholder="Years Of Experience"
+          formControlName="yearsOfExperience"
+        />
+        <mat-error
+          *ngIf="
+            formControl.get('yearsOfExperience').errors?.required &&
+            formControl.get('yearsOfExperience').touched
+          "
+          >This Field Required</mat-error
+        >
+      </div>
+      <div class="mb-3">
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Enter Email"
+          required
+          autocomplete="false"
+        />
+        <mat-error
+          *ngIf="
+            formControl.get('email').errors?.email &&
+            formControl.get('email').touched
+          "
+          >This Must Be An Email</mat-error
+        >
+        <mat-error
+          *ngIf="
+            formControl.get('email').errors?.required &&
+            formControl.get('email').touched
+          "
+          >This Field Required</mat-error
+        >
+      </div>
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Enter Password"
+          required
+          autocomplete="false"
+        />
+        <mat-error
+          *ngIf="
+            formControl.get('password').errors?.required &&
+            formControl.get('password').touched
+          "
+          >This Field Required</mat-error
+        >
+        <mat-error *ngIf="formControl.get('password').errors?.minlength">
+          minlength Is 6
+        </mat-error>
+      </div>
+      <div class="mb-3">
+        <span>already have account ?</span>
+        <a [routerLink]="'/system/login'">Login</a>
+      </div>
+      <div class="form-group">
+        <button
+          class="btn btn-primary btn-block"
+          type="submit"
+          [disabled]="formControl.invalid"
+        >
+          SignUp
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

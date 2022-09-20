@@ -1,0 +1,29 @@
+// *{
+//   font-family: Poppins !important;
+// }
+li{
+  list-style: none;
+  display: inline;
+  margin: 0 10px;
+  font-size: 1.2rem;
+}
+.space{
+  flex:1 1 auto
+}
+
+a{
+  color:#fff;
+}
+.navbar-brand{
+  color: #fff;
+}
+a:hover{
+  color:#17a2b8;
+  text-decoration: none;
+}
+nav{
+  background-color: rgb(73, 73, 73);
+}
+button{
+  color:#fff;
+}

@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+// @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap");
+@import "~quill/dist/quill.core.css";
+// @import '~quill/dist/quill.bubble.css';
+@import "~quill/dist/quill.snow.css";
+@import "~ngx-sharebuttons/themes/default/default-theme.scss";
+// @import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa");
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: #e3f2fd !important;
+  margin: 0;
+  font-family: "Comfortaa" !important;
+  text-size-adjust: 100%;
+}
+
+// * {
+//   margin: 0px;
+//   padding: 0px;
+//   box-sizing: border-box;
+// }
+// ul {
+//   margin: 0;
+//   padding: 0;
+// }
+// h1,
+// h2,
+// h3,
+// h4,
+// h5 {
+//   margin: 0 !important;
+// }
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+a {
+  text-decoration: none;
+}

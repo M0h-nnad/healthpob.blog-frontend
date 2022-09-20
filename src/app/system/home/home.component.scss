@@ -1,0 +1,11 @@
+.grid {
+  display: grid;
+  grid-template-columns: 0.1fr 0 2fr;
+}
+.example-container {
+  height: 100%;
+}
+mat-drawer-content {
+  background-color: #eeeeee;
+  overflow-x: hidden;
+}

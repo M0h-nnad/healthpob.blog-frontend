@@ -1,0 +1,44 @@
+<mat-spinner
+  class="mx-auto my-auto"
+  color="warn"
+  *ngIf="isLoading"
+></mat-spinner>
+<div class="container" *ngIf="!isLoading">
+  <div class="post-header">
+    <p class="title">{{ post?.title }}</p>
+    <img class="Post-Image" [src]="post?.imagePath || post?.ImagePath" alt="" />
+    <div class="my-1">
+      <img [src]="author?.imagePath" alt="" />
+      <p class="d-inline-block" style="font-size: large">
+        <strong
+          >Written by {{ author?.firstName + " " + author?.lastName }}</strong
+        >
+      </p>
+    </div>
+  </div>
+  <div class="post-content" [innerHTML]="post?.content"></div>
+  <!-- <div class="post-tags">
+    <!-- <mat-chip-list aria-label="Fish selection">
+      <mat-chip color="accent" *ngFor="let tag of post?.tags">{{tag}}</mat-chip>
+    </mat-chip-list>
+  </div> -->
+  <share-buttons
+    theme="circles-dark"
+    [include]="[
+      'copy',
+      'facebook',
+      'messenger',
+      'twitter',
+      'whatsapp'
+    ]"
+    [showIcon]="true"
+    [showText]="true"
+    [url]="'https://localhost\:4200/blog/post/' + postId"
+    [description]="post.content"
+    [twitterAccount]="author.firstName + ' ' + author.lastName"
+    [image]="'https://localhost\:4200/image/'+post.imagePath"
+    (opened)="share($event)"
+    class="pt-5"
+  >
+  </share-buttons>
+</div>

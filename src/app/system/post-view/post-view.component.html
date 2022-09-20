@@ -1,0 +1,84 @@
+<mat-spinner
+  class="mx-auto my-auto"
+  color="warn"
+  *ngIf="isLoading"
+></mat-spinner>
+<div class="container" *ngIf="!isLoading">
+  <form [formGroup]="postForm" class="col-md-12" (ngSubmit)="onSave()">
+    <div class="row mx-0">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input class="form-control" formControlName="title" type="text" />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-control" formControlName="category">
+            <option [disabled]="true" [selected]="true">Select Category</option>
+            <option value="General surgery">General surgery</option>
+            <option value="Oriental medicine">Oriental medicine</option>
+            <option value="Latest Medical Research">
+              Latest Medical Research
+            </option>
+            <option value="Common Medical Condition">
+              Common Medical Condition
+            </option>
+            <option value="Mental Health">Mental Health</option>
+            <option value="Conventional medicine">Conventional medicine</option>
+            <option value="Medical education">Medical education</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Healthy food habits">Healthy food habits</option>
+            <option value="Misconceptions about a condition">
+              Misconceptions about a condition
+            </option>
+            <option value="Vaccination">Vaccination</option>
+            <option value="Medical myths">Medical myths</option>
+            <option value="Medical facts">Medical facts</option>
+            <option value="Exercises to stay fit">Exercises to stay fit</option>
+            <option value="History of medicine">History of medicine</option>
+            <option value="Medical Insurance">Medical Insurance</option>
+            <option value="Healthcare system of a country">
+              Healthcare system of a country
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row mx-0">
+      <div class="form-group">
+        <div class="col">
+          <label for="Image">Image</label><br />
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="filePicker.click()"
+          >
+            Pick Image
+          </button>
+          <input type="file" #filePicker (change)="onImagePic($event)" />
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="image-preview col" *ngIf="imageUrl !== '' && imageUrl">
+      <img [src]="imageUrl" height="250" alt="" />
+    </div>
+    <br />
+    <div class="form-group">
+      <div class="col">
+        <label for="content">Content</label>
+        <quill-editor theme="snow" formControlName="editor"></quill-editor>
+      </div>
+    </div>
+    <br />
+
+    <br />
+    <div class="row">
+      <div class="mx-auto">
+        <button type="submit" class="btn btn-success">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

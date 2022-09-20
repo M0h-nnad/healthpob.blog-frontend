@@ -1,0 +1,132 @@
+<mat-spinner
+  class="mx-auto my-auto"
+  color="warn"
+  *ngIf="isLoading"
+></mat-spinner>
+
+<div class="container-fluid">
+  <div class="add-post" *ngIf="!isLoading">
+    <input
+      type="text"
+      (input)="searchInPosts($event)"
+      placeholder="Search By Title"
+      class="form-control"
+    />
+    <a routerLink="/system/post" class="btn btn-primary">
+      <!-- <mat-icon>post_add</mat-icon> -->
+      <i class="fa-solid fa-file-circle-plus"></i>
+      Add post
+    </a>
+  </div>
+</div>
+
+<!-- <div class="container" > -->
+<!-- <div *ngFor="let post of posts" class="post-card">
+    <div class="card-container">
+      <div class="header">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="deletePost(post._id)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete Post</span>
+          </button>
+          <button mat-menu-item (click)="updatePost(post._id)">
+            <mat-icon>update</mat-icon>
+            <span>Update</span>
+          </button>
+          <button
+            *ngIf="!post.published"
+            mat-menu-item
+            (click)="publishPost(post._id, post.published)"
+          >
+            <mat-icon>publish</mat-icon>
+            <span>Publish</span>
+          </button>
+          <button
+            *ngIf="post.published"
+            mat-menu-item
+            (click)="publishPost(post._id, post.published)"
+          >
+            <mat-icon>unpublished</mat-icon>
+            <span>UnPublish</span>
+          </button>
+        </mat-menu>
+        <img
+          [src]="
+            post?.imagePath
+              ? post?.imagePath
+              : 'https://via.placeholder.com/600x400'
+          "
+          alt=""
+        />
+        <h2>{{ post?.title }}</h2>
+      </div>
+      <div class="date">
+        <span>{{ post?.date | date }}</span>
+      </div>
+    </div>
+  </div> -->
+<!-- </div> -->
+<div class="container text-center" *ngIf="!isLoading && posts.length == 0">
+  <h1>There is No data</h1>
+</div>
+<div class="px-5 py-2" *ngIf="!isLoading && posts.length > 0">
+  <table mat-table [dataSource]="posts" class="mat-elevation-z8">
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="published">
+      <th mat-header-cell *matHeaderCellDef>published</th>
+      <td mat-cell *matCellDef="let element">{{ element.published }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>category</th>
+      <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          class="btn my-2 btn-outline-primary"
+          (click)="updatePost(element._id)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          class="btn my-2 btn-outline-danger"
+          (click)="deletePost(element._id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          class="btn my-2 btn-outline-success"
+          (click)="publishPost(element._id, element.published)"
+        >
+          <mat-icon *ngIf="!element.published">publish</mat-icon>
+          <mat-icon *ngIf="element.published">unpublished</mat-icon>
+        </button>
+        <!-- <button
+          *ngIf="element.published"
+          mat-fab
+          (click)="publishPost(element._id, element.published)"
+        >
+          <mat-icon>unpublished</mat-icon>
+        </button> -->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

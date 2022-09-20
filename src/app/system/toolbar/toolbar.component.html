@@ -1,0 +1,42 @@
+<div class="container-fluid py-2 px-5">
+    <div class="row align-items-center mx-0">
+      <div class="col-xxl-11 col-xl-11 col-lg-11 col-md-10 col-sm-10 col-9">
+        <button
+          class="btn btn-primary"
+          *ngIf="isMobile"
+          (click)="openSideBar()"
+        >
+          &#9776;
+        </button>
+      </div>
+      <div
+        class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-3 d-flex align-items-center"
+      >
+        <div ngbDropdown class="d-inline-block" placement="bottom">
+          <button
+            type="button"
+            class="btn"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            <img
+              [src]="
+                user.imagePath
+                  ? user.imagePath
+                  : 'https://via.placeholder.com/70'
+              "
+              alt=""
+            />
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a [routerLink]="'/system/user/' + user._id" ngbDropdownItem
+              ><i class="fa-solid fa-pen-to-square mx-1"></i>Edit User</a
+            >
+            <button (click)="logout()" ngbDropdownItem>
+              <i class="fa-solid fa-right-from-bracket mx-1"></i> Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

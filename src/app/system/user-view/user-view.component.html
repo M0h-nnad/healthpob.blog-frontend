@@ -1,0 +1,191 @@
+<mat-spinner
+  class="mx-auto my-auto"
+  color="warn"
+  *ngIf="isLoading"
+></mat-spinner>
+
+<div class="container col-md-6 mt-4" *ngIf="!isLoading && !isPassword">
+  <form [formGroup]="UserFrom" (ngSubmit)="onSave()">
+    <div class="form-group">
+      <div class="image-preview">
+        <img
+          [src]="imageUrl ? imageUrl : 'https://via.placeholder.com/100x100'"
+          alt=""
+        />
+      </div>
+      <input type="file" #filePicker (change)="onImagePic($event)" />
+      <button mat-button type="button" (click)="filePicker.click()">
+        Add Image
+      </button>
+
+      <button
+        class="btn d-block mx-auto my-1"
+        type="button"
+        (click)="changePassMode()"
+      >
+        Edit Password
+      </button>
+    </div>
+    <div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <input
+              type="email"
+              placeholder="Email"
+              formControlName="email"
+              class="form-control"
+              autocomplete="false"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="First Name"
+              formControlName="firstName"
+              class="form-control"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              placeholder="Last Name"
+              formControlName="lastName"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <input
+              type="number"
+              placeholder="Years of Experience"
+              formControlName="yearsOfExperience"
+              class="form-control"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              placeholder="Speacialty"
+              formControlName="specialty"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="Facebook Link"
+              formControlName="facebookLink"
+              class="form-control"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              placeholder="Instagram Link"
+              formControlName="instagramLink"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              placeholder="Twitter Link"
+              formControlName="twitterLink"
+              class="form-control"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              placeholder="Your Website Link"
+              formControlName="websiteLink"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <textarea
+              class="form-control"
+              formControlName="bio"
+              placeholder="Your Bio"
+              style="height: 200px"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="button-container">
+        <button class="btn btn-info" type="submit">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container-sm mt-2">
+  <h3 class="text-center">Change Password</h3>
+  <form
+    [formGroup]="passwordChangeForm"
+    *ngIf="isPassword"
+    (ngSubmit)="changePassword()"
+    class="col-md-6 mx-auto mt-1"
+  >
+    <div class="form-group">
+      <div class="row mb-1">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="oldPassword"
+          placeholder="Old Password"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row mb-1">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="newPassword"
+          placeholder="New Password"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row mb-1">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="confirmNewPassword"
+          placeholder="Confirm New Password"
+        />
+        <mat-error *ngIf="f.confirmNewPassword.errors"
+          >Must Be Matched</mat-error
+        >
+      </div>
+    </div>
+    <button
+      type="submit"
+      [disabled]="passwordChangeForm.invalid"
+      class="btn btn-info"
+    >
+      Change Password
+    </button>
+  </form>
+</div>
