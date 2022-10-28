@@ -8,7 +8,6 @@ import {
   ApexChart,
   ApexXAxis,
   ApexTitleSubtitle,
-  ApexTheme,
   ApexYAxis,
 } from 'ng-apexcharts';
 import { formatDate } from '@angular/common';

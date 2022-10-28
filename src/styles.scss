@@ -5,8 +5,8 @@
 @import "~quill/dist/quill.snow.css";
 @import "~ngx-sharebuttons/themes/default/default-theme.scss";
 // @import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
-// @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Comfortaa");
 html,
 body {
   height: 100%;
@@ -14,7 +14,7 @@ body {
 body {
   background-color: #e3f2fd !important;
   margin: 0;
-  font-family: "Comfortaa" !important;
+  font-family: "Poppins" !important;
   text-size-adjust: 100%;
 }
 
