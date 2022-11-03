@@ -1,4 +1,116 @@
-.Image img{
-  width: 100%;
+.btn {
+  text-transform: capitalize;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 15px;
+  padding: 8px 16px;
+}
+.btn-gradient {
+  width: 45%;
+  background: linear-gradient(to right,#fe4f70 0%,#ffa387 51%,#fe4f70 100%);
+  background-size: 200% auto;
 }
 
+.btn:hover{
+  color:unset;
+}
+
+.p-30px{
+  padding: 30px;
+}
+
+.th-border{
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+}
+
+.btn-inactive{
+  color: #8f9bad ;
+  border:1px solid #ebebeb;
+  width: 45%;
+  margin-inline-start: 5%;
+}
+.th-card {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: 0 8px 20px rgb(32 54 86 / 30%);
+}
+
+.th-card::after {
+  content: "";
+  background-color: #2036568a;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.th-card img{
+  transition: all 0.3s linear;
+  width: 100%;
+  height: 100%;
+
+}
+.th-card:hover img{
+  transform: scale(1.1);
+}
+
+.th-card .th-card-text {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  z-index: 2;
+}
+
+.th-card .th-card-text .th-card-category {
+  background-image: linear-gradient(
+    to right,
+    #fe4f70 0%,
+    #ffa387 51%,
+    #fe4f70 100%
+  );
+  border-radius: 10px;
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 13pxs;
+  transition: all 0.3s linear;
+  background-size: 200% auto;
+}
+.th-card .th-card-text .th-card-category:hover {
+  background-position: right center;
+}
+
+.th-card .th-card-text .th-card-title {
+  font-size: 32px;
+  font-weight: bold;
+  width: 50%;
+  display: inline;
+  line-height: 1.5;
+}
+
+
+.th-list-tile{
+  display: flex;
+  align-items: center;
+  padding-bottom: 4%;
+  gap: 10px;
+  margin-top: 9.151%;
+}
+
+.th-list-tile:not(:last-child){
+  border-bottom: 1px solid #ebebeb;
+}
+
+.th-list-tile img{
+  border-radius: 100%;
+}
+
+.th-list-tile .th-list-tile-text .th-list-tile-title{
+  margin-bottom: 0px;
+  font-weight: bold;
+  font-size: 15px;
+text-transform: capitalize;
+}
