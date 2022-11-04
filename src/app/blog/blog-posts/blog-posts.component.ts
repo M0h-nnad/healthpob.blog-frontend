@@ -13,6 +13,7 @@ import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./blog-posts.component.scss'],
 })
 export class BlogPostsComponent implements OnInit, OnDestroy {
+  tabMode = 1;
   posts: Post[];
   isLoadingMore: boolean = false;
   temp;

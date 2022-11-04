@@ -1,8 +1,102 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="th-card">
+        <img
+          src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/grant-ritchie-1154815-unsplash-750x540.jpg"
+          alt="Thumbnail"
+          class="img-fluid"
+        />
+        <div class="th-card-text">
+          <h4 class="th-card-category">Inspiration</h4>
+          <br />
+          <h3 class="th-card-title">
+            5 Easy Ways You Can Turn Future Into Success
+          </h3>
+          <br />
+          <h5 class="th-card-info">Katen Doe . August 20, 2022</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-30px th-border h-100">
+        <div class="row mb-5">
+          <div
+            class="btn btn-inactive"
+            (click)="tabMode = 1"
+            [ngClass]="{ 'btn-gradient': tabMode === 1 }"
+          >
+            popular
+          </div>
+          <div
+            class="btn btn-inactive"
+            (click)="tabMode = 2"
+            [ngClass]="{ 'btn-gradient': tabMode === 2 }"
+          >
+            recent
+          </div>
+        </div>
+        <div class="posts">
+          <div class="th-list-tile">
+            <img
+              src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/aleksander-vlad-Jym19Ty9Dc4-unsplash-60x60.jpg"
+              alt=""
+            />
+            <div class="th-list-tile-text">
+              <h4 class="th-list-tile-title">
+                3 Easy Ways To Make Your iPhone Faster
+              </h4>
+              <h5 class="date">August 19, 2022</h5>
+            </div>
+          </div>
+          <div class="th-list-tile">
+            <img
+              src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/drop-the-label-movement-608463-unsplash-60x60.jpg"
+              alt=""
+            />
+            <div class="th-list-tile-text">
+              <h4 class="th-list-tile-title">
+                Facts About Business That Will Help You Success
+              </h4>
+              <h5 class="date">August 23, 2022</h5>
+            </div>
+          </div>
+          <div class="th-list-tile">
+            <img
+              src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/matt-le-112706-unsplash-60x60.jpg"
+              alt=""
+            />
+            <div class="th-list-tile-text">
+              <h4 class="th-list-tile-title">
+                15 Unheard Ways To Achieve Greater Walker
+              </h4>
+              <h5 class="date">August 23, 2022</h5>
+            </div>
+          </div>
+          <div class="th-list-tile">
+            <img
+              src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/grant-ritchie-1154815-unsplash-60x60.jpg"
+              alt=""
+            />
+            <div class="th-list-tile-text">
+              <h4 class="th-list-tile-title">
+                5 Easy Ways You Can Turn Future Into Success
+              </h4>
+              <h5 class="date">August 20, 2022</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <mat-spinner
   class="mx-auto my-auto"
   color="warn"
   *ngIf="isLoading"
 ></mat-spinner>
+
 <div class="container" *ngIf="!isLoading">
   <!-- <section class="cards-container">
     <div *ngFor="let post of posts" class="card-container">
@@ -58,7 +152,18 @@
           </div>
         </div>
 
-        <button class="btn th-btn"  *ngIf="postCount !== posts.length" (click)="onChangePage()"> <mat-spinner [diameter]="20" [color]="'warn'" *ngIf="isLoadingMore"></mat-spinner> More Posts</button>
+        <button
+          class="btn th-btn"
+          *ngIf="postCount !== posts.length"
+          (click)="onChangePage()"
+        >
+          <mat-spinner
+            [diameter]="20"
+            [color]="'warn'"
+            *ngIf="isLoadingMore"
+          ></mat-spinner>
+          More Posts
+        </button>
       </div>
     </div>
   </div>
