@@ -3,8 +3,8 @@
   color="warn"
   *ngIf="isLoading"
 ></mat-spinner>
-<div class="container-fluid" *ngIf="!isLoading">
-  <section class="cards-container">
+<div class="container" *ngIf="!isLoading">
+  <!-- <section class="cards-container">
     <div *ngFor="let post of posts" class="card-container">
       <img [src]="post.imagePath || post.ImagePath" height="250"/>
       <div class="content">
@@ -16,7 +16,6 @@
           <span [innerHTML]="post.content"></span>
         </div>
         <a class="btn" [routerLink]="'/blog/post/' + post._id">
-          <!-- <mat-icon>read_more</mat-icon> -->
           <span style="font-size: small">
           <i class="fa-brands fa-readme"></i>
 
@@ -24,11 +23,50 @@
         </a>
       </div>
     </div>
-  </section>
-  <div
-    class="container-fluid text-center my-2"
-    *ngIf="postCount !== posts.length"
-  >
-    <button class="btn btn-success" (click)="onChangePage()">More Posts</button>
+  </section> -->
+  <h3 class="th-h3">Latest Posts</h3>
+  <img class="line" src="assets/line.svg" alt="line" />
+  <div class="row">
+    <div class="col-md-9">
+      <div class="th-wrapper">
+        <div class="th-card-container" *ngFor="let post of posts">
+          <div class="img-container">
+            <img
+              [src]="post.imagePath || post.ImagePath"
+              [alt]="post.title"
+              width="350"
+              height="250"
+            />
+          </div>
+
+          <div class="th-card-text">
+            <div class="th-card-info">
+              <span>{{ post.category }}</span>
+              <span>{{ post.date | date }}</span>
+            </div>
+            <div class="th-card-title">
+              <h3>{{ post.title }}</h3>
+            </div>
+            <div class="th-card-discription">
+              <span [innerHTML]="post.content"></span>
+            </div>
+            <div class="th-card-actions">
+              <a class="btn" [routerLink]="'/blog/post/' + post._id">
+                <fa-icon [icon]="faEllipsis"></fa-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn th-btn"  *ngIf="postCount !== posts.length" (click)="onChangePage()"> <mat-spinner [diameter]="20" [color]="'warn'" *ngIf="isLoadingMore"></mat-spinner> More Posts</button>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- <div
+  class="container-fluid text-center my-2"
+  *ngIf="postCount !== posts.length"
+>
+  <button class="btn btn-success" (click)="onChangePage()">More Posts</button>
+</div> -->

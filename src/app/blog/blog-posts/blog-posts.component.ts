@@ -6,7 +6,7 @@ import { Post } from '../../models/post.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PageEvent } from '@angular/material/paginator';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-blog-posts',
   templateUrl: './blog-posts.component.html',
@@ -14,7 +14,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class BlogPostsComponent implements OnInit, OnDestroy {
   posts: Post[];
+  isLoadingMore: boolean = false;
   temp;
+  faEllipsis = faEllipsis;
   isLoading: boolean = true;
   postCount: number;
   postSubscription: Subscription;
@@ -69,10 +71,12 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
   }
 
   onChangePage() {
+    this.isLoadingMore = true;
     // const currentPage = pageEvent.pageIndex + 1;
     this.pager.page += 1;
     this.postService.getAllPosts(this.pager.size, this.pager.page).subscribe(
       (res: any) => {
+        this.isLoadingMore = false;
         this.temp = res.Posts;
         for (let post of this.temp) {
           this.covertHTMLToText(post);

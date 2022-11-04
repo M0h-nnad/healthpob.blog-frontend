@@ -1,9 +1,8 @@
-
 .full-container {
   padding: 20px;
 }
 
-.fa-readme{
+.fa-readme {
   color: rgb(0, 194, 0);
 }
 
@@ -30,20 +29,11 @@
 header {
   text-align: center;
 }
-img {
-  width: 100%;
-}
+
 .card-header-container p {
   font-size: 10px;
   color: #bcbcbc;
   margin: 0px !important;
-}
-h3 {
-  font-size: medium !important;
-  margin: 0px !important;
-  line-height: 1;
-  height: 3em;
-  overflow: hidden;
 }
 
 mat-paginator {
@@ -72,4 +62,109 @@ button span {
 }
 .content {
   padding: 10px;
+}
+
+.th-wrapper {
+  padding: 30px;
+  border: 1px solid #ebebeb;
+  border-radius: 15px;
+}
+
+.th-h3 {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.line {
+  margin-bottom: 30px;
+}
+
+.th-card-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  border-image: linear-gradient(to left, #ebebeb 0%, transparent 100%) 0 0 50 0;
+  border-image-width: 1px;
+  border-style: solid;
+  padding-bottom: 30px;
+}
+
+.th-card-container .img-container {
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 15px;
+  height: 200px;
+}
+
+.th-card-container .img-container img {
+  transition: all 0.5s ease;
+}
+
+.th-card-container .img-container img:hover {
+  transform: scale(1.08);
+}
+
+.th-card-container .th-card-text .th-card-info {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.th-card-container .th-card-text .th-card-info span {
+  font-size: 14px;
+  color: #8f9bad;
+}
+
+.th-card-container .th-card-text .th-card-title h3 {
+  text-transform: capitalize;
+  color: #203656;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.th-card-container .th-card-text .th-card-title h3:hover {
+  color: #fe4f70;
+}
+
+.th-card-container .th-card-text .th-card-discription {
+  margin-bottom: 20px;
+}
+
+.th-card-container .th-card-text .th-card-discription span {
+  color: #8f9bad;
+  font-size: 15px;
+  font-weight: normal;
+  overflow: hidden;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.th-card-container .th-card-text .th-card-actions a {
+  display: block;
+  float: right;
+}
+
+.th-wrapper .th-btn {
+  border-radius: 25px;
+  background-color: #fff;
+  color: #8f9bad;
+  border: 1px solid #ebebeb;
+  padding: 11px 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.th-wrapper .th-btn:hover {
+  color: #fe4f70;
+  border-color: #fe4f70;
 }

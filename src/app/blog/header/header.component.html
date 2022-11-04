@@ -22,8 +22,8 @@
     <div class="col-md-4">
       <div class="p-30px th-border h-100">
         <div class="row mb-5">
-          <div class="btn btn-gradient">popular</div>
-          <div class="btn btn-inactive">recent</div>
+          <div class="btn btn-inactive" (click)="tabMode = 1" [ngClass]="{'btn-gradient': tabMode === 1}">popular</div>
+          <div class="btn btn-inactive" (click)="tabMode = 2" [ngClass]="{'btn-gradient': tabMode === 2}">recent</div>
         </div>
         <div class="posts">
           <div class="th-list-tile">

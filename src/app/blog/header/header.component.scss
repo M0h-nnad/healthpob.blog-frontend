@@ -5,14 +5,29 @@
   font-size: 15px;
   padding: 8px 16px;
 }
+
+
+
+.btn.btn-inactive:hover {
+  color: #8f9bad ;
+  border-color:#ebebeb;
+}
+.btn.btn-gradient:hover {
+  color: #fff;
+
+}
+.btn-inactive{
+  color: #8f9bad ;
+  border:1px solid #ebebeb;
+  width: 45%;
+  margin-inline-start: 5%;
+}
+
 .btn-gradient {
   width: 45%;
   background: linear-gradient(to right,#fe4f70 0%,#ffa387 51%,#fe4f70 100%);
   background-size: 200% auto;
-}
-
-.btn:hover{
-  color:unset;
+  color: #fff;
 }
 
 .p-30px{
@@ -24,12 +39,6 @@
   border-radius: 10px;
 }
 
-.btn-inactive{
-  color: #8f9bad ;
-  border:1px solid #ebebeb;
-  width: 45%;
-  margin-inline-start: 5%;
-}
 .th-card {
   border-radius: 10px;
   position: relative;
@@ -75,7 +84,7 @@
   border-radius: 10px;
   display: inline-block;
   padding: 3px 10px;
-  font-size: 13pxs;
+  font-size: 13px;
   transition: all 0.3s linear;
   background-size: 200% auto;
 }
@@ -97,11 +106,13 @@
   align-items: center;
   padding-bottom: 4%;
   gap: 10px;
-  margin-top: 9.151%;
+  margin-top: 11.151%;
 }
 
 .th-list-tile:not(:last-child){
-  border-bottom: 1px solid #ebebeb;
+  border-image: linear-gradient(to left,#ebebeb 0%,transparent 100%) 0 0 50 0;
+  border-image-width: 1px;
+  border-style: solid;
 }
 
 .th-list-tile img{
@@ -112,5 +123,19 @@
   margin-bottom: 0px;
   font-weight: bold;
   font-size: 15px;
-text-transform: capitalize;
+  text-transform: capitalize;
+  color: #203656;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.th-list-tile .th-list-tile-text .th-list-tile-title:hover{
+  color: #fe4f70;
+}
+
+.th-list-tile .th-list-tile-text .date{
+  margin-bottom: 0px;
+  font-size: 14px;
+  color: #8f9bad;
 }
