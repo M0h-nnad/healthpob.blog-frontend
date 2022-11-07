@@ -4,41 +4,78 @@
   *ngIf="isLoading"
 ></mat-spinner>
 <div class="container" *ngIf="!isLoading">
-  <div class="post-header">
-    <p class="title">{{ post?.title }}</p>
-    <img class="Post-Image" [src]="post?.imagePath || post?.ImagePath" alt="" />
-    <div class="my-1">
-      <img [src]="author?.imagePath" alt="" />
-      <p class="d-inline-block" style="font-size: large">
-        <strong
-          >Written by {{ author?.firstName + " " + author?.lastName }}</strong
-        >
-      </p>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="post-header">
+        <h1 class="post-title">{{ post?.title }}</h1>
+        <div class="post-author">
+          <img
+            class="author-img"
+            [src]="
+              'https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/nick-arnot-321267-unsplash-300x300.jpg'
+            "
+            alt=""
+          />
+          <p class="author-text">
+            {{ author?.firstName + " " + author?.lastName }}
+          </p>
+          <li class="author-text">
+            {{ post.category }}
+          </li>
+          <li class="author-text">
+            {{ post.date | date: "MMMM dd,yyyy" }}
+          </li>
+        </div>
+        <img
+          class="post-image"
+          [src]="post?.imagePath || post?.ImagePath"
+          alt="post-image"
+        />
+      </div>
+      <div class="post-content" [innerHTML]="post?.content"></div>
+
+      <hr />
+
+      <span class="text-alt m-0"> share this: </span>
+      <share-buttons
+        theme="circles-dark"
+        [include]="['copy', 'facebook', 'messenger', 'twitter', 'whatsapp']"
+        [showIcon]="true"
+        [showText]="false"
+        [url]="'https://localhost\:4200/blog/post/' + postId"
+        [description]="post.content"
+        [twitterAccount]="author.firstName + ' ' + author.lastName"
+        [image]="'https://localhost\:4200/image/' + post.imagePath"
+        (opened)="share($event)"
+      >
+      </share-buttons>
+
+      <div class="author-about">
+        <div class="img-container">
+          <img
+            src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/nick-arnot-321267-unsplash-300x300.jpg"
+            alt=""
+          />
+        </div>
+        <div class="author-text">
+          <h3>Katen Doe</h3>
+          <p>
+            Hello, I’m a content writer who is fascinated by content fashion,
+            celebrity and lifestyle. She helps clients bring the right content
+            to the right people.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="th-border">
+        <h3>HealthPod</h3>
+        <p>
+          Hello, We’re content writer who is fascinated by content fashion,
+          celebrity and lifestyle. We helps clients bring the right content to
+          the right people.
+        </p>
+      </div>
     </div>
   </div>
-  <div class="post-content" [innerHTML]="post?.content"></div>
-  <!-- <div class="post-tags">
-    <!-- <mat-chip-list aria-label="Fish selection">
-      <mat-chip color="accent" *ngFor="let tag of post?.tags">{{tag}}</mat-chip>
-    </mat-chip-list>
-  </div> -->
-  <share-buttons
-    theme="circles-dark"
-    [include]="[
-      'copy',
-      'facebook',
-      'messenger',
-      'twitter',
-      'whatsapp'
-    ]"
-    [showIcon]="true"
-    [showText]="true"
-    [url]="'https://localhost\:4200/blog/post/' + postId"
-    [description]="post.content"
-    [twitterAccount]="author.firstName + ' ' + author.lastName"
-    [image]="'https://localhost\:4200/image/'+post.imagePath"
-    (opened)="share($event)"
-    class="pt-5"
-  >
-  </share-buttons>
 </div>

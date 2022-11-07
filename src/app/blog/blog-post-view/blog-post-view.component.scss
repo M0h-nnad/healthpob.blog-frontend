@@ -4,26 +4,112 @@
   width: calc(100vw - 90px);
 }
 
-.post-header .title {
-  font-size: 50px;
-  line-height: 54px;
+.post-header .post-title {
+  font-size: 36px;
   margin-bottom: 30px;
   margin-top: 30px;
+  text-transform: capitalize;
+  font-weight: bold;
 }
-.post-header .Post-Image {
-  display: block;
-  width: 80%;
+
+.post-header .post-author {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
 }
-.post-header div img {
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  display: inline-block;
+
+.post-header .post-author .author-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
 }
-.post-header{
+
+.post-header .post-author .author-text {
+  font-size: 14px;
+  color: #8f9bad;
+  text-transform: capitalize;
+  margin-bottom: 0px;
+}
+
+.post-header .post-image {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.text-alt {
+  font-size: 14px;
+  color: #8f9bad;
+  text-transform: capitalize;
+}
+
+// .post-header div img {
+//   border-radius: 50%;
+//   width: 70px;
+//   height: 70px;
+//   display: inline-blockk;
+// }
+.post-header {
   margin-bottom: 30px;
 }
-.post-container .post-content{
+.post-container .post-content {
   width: 100%;
   word-break: break-all;
+}
+
+.post-content{
+  overflow: hidden;
+}
+
+.author-about {
+  background: #f1f8ff;
+  border-radius: 30px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  padding: 30px;
+  margin: 10px 0px;
+}
+
+.author-about .img-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.author-about .author-text h3 {
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.author-about .author-text h3:hover {
+  color: #fe4f70;
+}
+
+.author-about .author-text p {
+  font-size: 15px;
+  color: #8f9bad;
+}
+
+.th-border {
+  padding: 35px 30px;
+  background-image: url("../../../assets/map-bg.png");
+  text-align: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 50px;
+}
+
+.th-border h3 {
+  font-size: 23px;
+  font-size: bold;
+}
+
+.th-border p {
+  font-size: 15px;
+  font-weight: 400;
+  color: #8f9bad;
 }
