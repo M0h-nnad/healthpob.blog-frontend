@@ -57,13 +57,13 @@
   word-break: break-all;
 }
 
-.post-content{
+.post-content {
   overflow: hidden;
 }
 
 .author-about {
   background: #f1f8ff;
-  border-radius: 30px;
+  border-radius: 10px;
   display: flex;
   gap: 25px;
   align-items: center;
@@ -71,10 +71,23 @@
   margin: 10px 0px;
 }
 
+.author-about .img-container {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 .author-about .img-container img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.author-about .img-container img:hover {
+  transform: scale(1.1);
 }
 
 .author-about .author-text h3 {

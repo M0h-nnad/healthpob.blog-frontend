@@ -129,4 +129,11 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+  <mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="pager.count"
+    [pageSizeOptions]="[pager.size]"
+    [pageIndex]="pager.page - 1"
+    >
+  </mat-paginator>
 </div>

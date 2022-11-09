@@ -144,8 +144,9 @@ button span {
 
 .th-card .th-card-text {
   position: absolute;
-  bottom: 10%;
-  left: 5%;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
   z-index: 2;
 }
 
@@ -168,51 +169,17 @@ button span {
 }
 
 .th-card .th-card-text .th-card-title {
-  font-size: 32px;
+  font-size: 3.5vmin;
   font-weight: bold;
   width: 50%;
   display: inline;
   line-height: 1.5;
 }
 
-.th-list-tile {
-  display: flex;
-  align-items: center;
-  padding-bottom: 4%;
-  gap: 10px;
-  margin-top: 11.151%;
+.th-card .th-card-text .th-card-info {
+  font-size: 2.2vmin;
 }
 
-.th-list-tile:not(:last-child) {
-  border-image: linear-gradient(to left, #ebebeb 0%, transparent 100%) 0 0 50 0;
-  border-image-width: 1px;
-  border-style: solid;
-}
-
-.th-list-tile img {
-  border-radius: 100%;
-}
-
-.th-list-tile .th-list-tile-text .th-list-tile-title {
-  margin-bottom: 0px;
-  font-weight: bold;
-  font-size: 15px;
-  text-transform: capitalize;
-  color: #203656;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  line-height: 1.4;
-}
-
-.th-list-tile .th-list-tile-text .th-list-tile-title:hover {
-  color: #fe4f70;
-}
-
-.th-list-tile .th-list-tile-text .date {
-  margin-bottom: 0px;
-  font-size: 14px;
-  color: #8f9bad;
-}
 
 .th-card-container {
   display: flex;
@@ -229,6 +196,9 @@ button span {
   flex-shrink: 0;
   border-radius: 15px;
   height: 200px;
+  max-width: 350px;
+  width: 100%;
+
 }
 
 .th-card-container .img-container img {
@@ -303,4 +273,49 @@ button span {
 .th-wrapper .th-btn:hover {
   color: #fe4f70;
   border-color: #fe4f70;
+}
+
+@media (max-width:991px) {
+  .th-card-container{
+    flex-wrap: wrap;
+  }
+}
+
+.th-list-tile {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4%;
+  gap: 10px;
+  margin-top: 11.151%;
+}
+
+.th-list-tile:not(:last-child) {
+  border-image: linear-gradient(to left, #ebebeb 0%, transparent 100%) 0 0 50 0;
+  border-image-width: 1px;
+  border-style: solid;
+}
+
+.th-list-tile img {
+  border-radius: 100%;
+}
+
+.th-list-tile .th-list-tile-text .th-list-tile-title {
+  margin-bottom: 0px;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #203656;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.th-list-tile .th-list-tile-text .th-list-tile-title:hover {
+  color: #fe4f70;
+}
+
+.th-list-tile .th-list-tile-text .date {
+  margin-bottom: 0px;
+  font-size: 14px;
+  color: #8f9bad;
 }

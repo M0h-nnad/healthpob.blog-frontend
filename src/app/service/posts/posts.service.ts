@@ -19,8 +19,9 @@ export class PostsService {
     );
   }
 
-  getUserPosts(id) {
-    return this.http.get(this.POSTS_URL + '/user/' + id).pipe(
+  getUserPosts(id, pageSize, currentSize) {
+    const queryParams = `?pageSize=${pageSize}&page=${currentSize}`;
+    return this.http.get(this.POSTS_URL + '/user/' + id + queryParams).pipe(
       catchError((err) => {
         return throwError(err);
       })

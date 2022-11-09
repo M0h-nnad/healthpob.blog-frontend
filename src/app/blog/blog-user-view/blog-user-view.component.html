@@ -1,4 +1,4 @@
-<mat-spinner class="mx-auto my-auto"color="warn" *ngIf="isLoading"></mat-spinner>
+<!-- <mat-spinner class="mx-auto my-auto"color="warn" *ngIf="isLoading"></mat-spinner>
 <div class="wrapper" *ngIf="!isLoading">
   <div class="profile-card js-profile-card">
     <div class="profile-card__img">
@@ -167,4 +167,70 @@
       ></path>
     </symbol>
   </defs>
-</svg>
+</svg> -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="author-about">
+        <div class="img-container">
+          <img
+            src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/nick-arnot-321267-unsplash-300x300.jpg"
+            alt=""
+          />
+        </div>
+        <div class="author-text">
+          <h3>Katen Doe</h3>
+          <p>
+            Hello, I’m a content writer who is fascinated by content fashion,
+            celebrity and lifestyle. She helps clients bring the right content
+            to the right people.
+          </p>
+        </div>
+      </div>
+
+      <div class="th-wrapper">
+        <div class="th-card-container" *ngFor="let post of posts">
+          <div class="img-container">
+            <img
+              [src]="post.imagePath || post.ImagePath"
+              [alt]="post.title"
+              width="350"
+              height="250"
+            />
+          </div>
+
+          <div class="th-card-text">
+            <div class="th-card-info">
+              <span>{{ post.category }}</span>
+              <span>{{ post.date | date }}</span>
+            </div>
+            <div class="th-card-title">
+              <h3>{{ post.title }}</h3>
+            </div>
+            <div class="th-card-discription">
+              <span [innerHTML]="post.content"></span>
+            </div>
+            <div class="th-card-actions">
+              <a class="btn" [routerLink]="'/blog/post/' + post._id">
+                <fa-icon [icon]="faEllipsis"></fa-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="btn th-btn"
+          *ngIf="pager.count !== posts.length"
+          (click)="onChangePage()"
+        >
+          <mat-spinner
+            [diameter]="20"
+            [color]="'warn'"
+            *ngIf="isLoadingMore"
+          ></mat-spinner>
+          More Posts
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

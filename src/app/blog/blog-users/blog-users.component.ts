@@ -46,7 +46,7 @@ export class BlogUsersComponent implements OnInit, OnDestroy {
   }
 
   openUser(id){
-    this.router.navigate(['/blog/Doctors/'+id])
+    this.router.navigate(['/blog/doctors/'+id])
   }
 
   ngOnDestroy() {

@@ -22,28 +22,39 @@ export class PostsComponent implements OnInit, OnDestroy {
   user: any;
   posts: Post[];
   temp;
-  displayedColumns = ['title', 'published', 'category','actions'];
+  displayedColumns = ['title', 'published', 'category', 'actions'];
   isLoading: boolean = true;
   postSubs: Subscription;
   postDeleteSub: Subscription;
   postPublishSub: Subscription;
+  pager = {
+    page: 1,
+    size: 9,
+    count: 0,
+  };
   ngOnInit() {
     this.user = this.authService.getUserDoc();
-    this.posts = this.user.posts;
+    this.getPosts();
+  }
+
+  getPosts() {
     this.isLoading = false;
-    this.postSubs = this.postsService.getUserPosts(this.user._id).subscribe(
-      (post: any) => {
-        this.temp = post;
-        this.posts = this.temp;
-        this.isLoading = false;
-      },
-      (error) => {
-        this.isLoading = false;
-        this._snackbar.open(error.error.message, null, {
-          duration: 5000,
-        });
-      }
-    );
+    this.postSubs = this.postsService
+      .getUserPosts(this.user._id, this.pager.size, this.pager.page)
+      .subscribe(
+        (res: any) => {
+          this.temp = res.posts;
+          this.pager.count = res.count;
+          this.posts = this.temp;
+          this.isLoading = false;
+        },
+        (error) => {
+          this.isLoading = false;
+          this._snackbar.open(error.error.message, null, {
+            duration: 5000,
+          });
+        }
+      );
   }
 
   deletePost(id) {
@@ -66,9 +77,16 @@ export class PostsComponent implements OnInit, OnDestroy {
     );
   }
 
+  handlePageEvent(event) {
+    const page = event.pageIndex + 1;
+    this.pager.page = page;
+    this.getPosts();
+  }
+
   updatePost(id) {
     this.router.navigate(['/system/post/' + id]);
   }
+
   searchInPosts(event) {
     const val = event.target.value.toLowerCase();
     const temp = this.temp.filter((x) => {
