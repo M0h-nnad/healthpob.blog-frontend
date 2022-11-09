@@ -25,10 +25,61 @@ ul li a {
   font-weight: 400;
 }
 
-ul li a.active{
+ul li a.active {
   background: linear-gradient(to right, #fe4f70 0%, #ffa387 100%);
   border-radius: 25px;
   color: #fff;
-
 }
 
+.nav-btn {
+  background: linear-gradient(to top, #ffa387 0%, #fe4f70 51%, #ffa387 100%);
+  background-size: auto 200%;
+  color: #fff;
+  border-radius: 50%;
+  border: 0px;
+  width: 37px;
+  height: 37px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-btn:hover {
+  background-position: bottom center;
+  color: #fff;
+}
+
+.th-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.th-modal .search-content {
+  position: absolute;
+  top: 45%;
+  left: 33%;
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+}
+
+.th-form-control {
+  width: 100%;
+  max-width: 500px;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #8f9bad;
+  background-color: #fff;
+  background-image: none;
+  border: solid 1px #ebebeb;
+  box-shadow: none;
+  outline: none;
+}

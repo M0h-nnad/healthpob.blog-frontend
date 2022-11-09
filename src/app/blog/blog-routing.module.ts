@@ -6,6 +6,7 @@ import { BlogHomeComponent } from './home/home.component';
 import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogUsersComponent } from './blog-users/blog-users.component';
 import { BlogPostViewComponent } from './blog-post-view/blog-post-view.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
         path: 'posts',
         component: BlogPostsComponent,
       },
+      { path: 'search', component: SearchComponent },
       { path: 'doctors', component: BlogUsersComponent },
       { path: 'doctors/:id', component: BlogUserViewComponent },
       { path: 'post/:id', component: BlogPostViewComponent },

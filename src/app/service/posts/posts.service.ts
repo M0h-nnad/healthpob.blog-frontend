@@ -1,15 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { pipe, throwError } from 'rxjs';
+import { catchError, first } from 'rxjs/operators';
+import { BehaviorSubject, pipe, Subject, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostsService {
-  POSTS_URL = '/api/posts';
-  COMMENTS_URL = '/api/post/comments/';
+  private POSTS_URL = '/api/posts';
+  private COMMENTS_URL = '/api/post/comments/';
+  private postsRouted = [];
+  private postSubject = new BehaviorSubject<any[]>(this.postsRouted);
   constructor(private http: HttpClient) {}
+
+  set searchPostsArr(val: any) {
+    this.postsRouted = val;
+    this.postSubject.next(this.postsRouted);
+  }
+
+  get searchPostsArr() {
+    return this.postSubject;
+  }
 
   addPost(post) {
     return this.http.post(this.POSTS_URL, post).pipe(
@@ -115,5 +126,14 @@ export class PostsService {
     return this.http
       .get(this.POSTS_URL + '/dashboard')
       .pipe(catchError((err) => throwError(err)));
+  }
+
+  searchPosts(s) {
+    return this.http
+      .get(this.POSTS_URL + '/search/', { params: { search: s } })
+      .pipe(
+        first(),
+        catchError((err) => throwError(err))
+      );
   }
 }

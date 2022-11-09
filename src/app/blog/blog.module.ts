@@ -16,6 +16,7 @@ import { BlogUserViewComponent } from './blog-user-view/blog-user-view.component
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BlogRoutingModule } from './blog-routing.module';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BlogRoutingModule } from './blog-routing.module';
     BlogUsersComponent,
     BlogPostViewComponent,
     BlogUserViewComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
