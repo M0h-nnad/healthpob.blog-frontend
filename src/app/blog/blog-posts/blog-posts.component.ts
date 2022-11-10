@@ -21,6 +21,8 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
   isLoading: boolean = true;
   postCount: number;
   postSubscription: Subscription;
+  popularPosts = [];
+  recentPosts = [];
   pager = {
     page: 1,
     size: 9,
@@ -34,6 +36,7 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.getAndAddHeaderPosts();
     this.postSubscription = this.postService
       .getAllPosts(this.pager.size, this.pager.page)
       .subscribe(
@@ -93,6 +96,17 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
         });
       }
     );
+  }
+
+  getAndAddHeaderPosts() {
+    console.log('workings');
+    this.postService.getHeaderPosts().subscribe((res: any) => {
+      this.popularPosts = res.popularPost;
+      this.recentPosts = res.recentPost;
+
+    console.log(this.popularPosts);
+
+    });
   }
   ngOnDestroy() {
     if (typeof this.postSubscription !== 'undefined') {

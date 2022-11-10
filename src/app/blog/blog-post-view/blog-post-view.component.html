@@ -9,13 +9,7 @@
       <div class="post-header">
         <h1 class="post-title">{{ post?.title }}</h1>
         <div class="post-author">
-          <img
-            class="author-img"
-            [src]="
-              'https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/nick-arnot-321267-unsplash-300x300.jpg'
-            "
-            alt=""
-          />
+          <img class="author-img" [src]="author.imagePath" alt="" />
           <p class="author-text">
             {{ author?.firstName + " " + author?.lastName }}
           </p>
@@ -23,7 +17,7 @@
             {{ post.category }}
           </li>
           <li class="author-text">
-            {{ post.date | date: "MMMM dd,yyyy" }}
+            {{ post.updatedAt | date: "MMMM dd,yyyy" }}
           </li>
         </div>
         <img
@@ -52,17 +46,12 @@
 
       <div class="author-about">
         <div class="img-container">
-          <img
-            src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/nick-arnot-321267-unsplash-300x300.jpg"
-            alt=""
-          />
+          <img class="author-img" [src]="author.imagePath" alt="" />
         </div>
         <div class="author-text">
-          <h3>Katen Doe</h3>
+          <h3>{{ author.firstName + " " + author.lastName }}</h3>
           <p>
-            Hello, I’m a content writer who is fascinated by content fashion,
-            celebrity and lifestyle. She helps clients bring the right content
-            to the right people.
+            {{ author.bio }}
           </p>
         </div>
       </div>

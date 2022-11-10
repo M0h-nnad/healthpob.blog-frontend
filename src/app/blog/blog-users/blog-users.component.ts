@@ -21,6 +21,7 @@ export class BlogUsersComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+
     this.usersSubscription = this.AuthService.getUsers().subscribe(
       (res: User) => {
         this.temp = res;

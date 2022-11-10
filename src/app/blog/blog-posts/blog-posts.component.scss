@@ -1,3 +1,6 @@
+a{
+  color: inherit;
+}
 .full-container {
   padding: 20px;
 }
@@ -70,6 +73,7 @@ button span {
   border-radius: 30px;
   font-size: 15px;
   padding: 8px 16px;
+  transition: all ease 0.3s;
 }
 
 .btn.btn-inactive:hover {
@@ -113,7 +117,6 @@ button span {
 .line {
   margin-bottom: 30px;
 }
-
 
 .th-card {
   border-radius: 10px;
@@ -173,13 +176,17 @@ button span {
   font-weight: bold;
   width: 50%;
   display: inline;
-  line-height: 1.5;
+  line-height: 1.25;
+}
+
+.th-card .th-card-text .th-card-title  a{
+  color: inherit;
 }
 
 .th-card .th-card-text .th-card-info {
-  font-size: 2.2vmin;
+  font-size: 1.5vmin;
+  color: #8f9bad;
 }
-
 
 .th-card-container {
   display: flex;
@@ -198,7 +205,6 @@ button span {
   height: 200px;
   max-width: 350px;
   width: 100%;
-
 }
 
 .th-card-container .img-container img {
@@ -207,6 +213,10 @@ button span {
 
 .th-card-container .img-container img:hover {
   transform: scale(1.08);
+}
+
+.th-card-container .th-card-text {
+  flex: 1;
 }
 
 .th-card-container .th-card-text .th-card-info {
@@ -249,8 +259,6 @@ button span {
   -webkit-box-orient: vertical;
 }
 
-
-
 .th-card-container .th-card-text .th-card-actions a {
   display: block;
   float: right;
@@ -275,8 +283,8 @@ button span {
   border-color: #fe4f70;
 }
 
-@media (max-width:991px) {
-  .th-card-container{
+@media (max-width: 991px) {
+  .th-card-container {
     flex-wrap: wrap;
   }
 }

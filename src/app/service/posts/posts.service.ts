@@ -136,4 +136,11 @@ export class PostsService {
         catchError((err) => throwError(err))
       );
   }
+
+  getHeaderPosts() {
+    return this.http.get(this.POSTS_URL + '/header').pipe(
+      first(),
+      catchError((err) => throwError(err))
+    );
+  }
 }

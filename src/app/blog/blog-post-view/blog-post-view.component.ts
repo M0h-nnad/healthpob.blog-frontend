@@ -38,7 +38,6 @@ export class BlogPostViewComponent implements OnInit, OnDestroy {
     }
     console.log(browserRefresh);
     this.isReloaded = browserRefresh;
-
     this.postSub = this.postService
       .getPost(this.postId, this.isReloaded)
       .subscribe(
@@ -65,6 +64,8 @@ export class BlogPostViewComponent implements OnInit, OnDestroy {
       (err) => {}
     );
   }
+
+
 
   ngOnDestroy() {
     if (typeof this.postSub !== 'undefined') {

@@ -1,20 +1,22 @@
 <div class="container my-5">
-  <div class="row ">
+  <div class="row">
     <div class="col-md-8 mb-1">
       <div class="th-card">
         <img
-          src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/grant-ritchie-1154815-unsplash-750x540.jpg"
-          alt="Thumbnail"
+          [src]="popularPosts[0]?.ImagePath || popularPosts[0]?.imagePath"
+          [alt]="popularPosts[0]?.title"
           class="img-fluid"
         />
         <div class="th-card-text">
-          <h4 class="th-card-category">Inspiration</h4>
+          <h4 class="th-card-category">{{ popularPosts[0]?.category }}</h4>
           <br />
           <h3 class="th-card-title">
-            5 Easy Ways You Can Turn Future Into Success
+            <a [routerLink]="'/blog/post/' + popularPosts[0]?._id">
+              {{ popularPosts[0]?.title }}
+            </a>
           </h3>
           <br />
-          <h5 class="th-card-info">Katen Doe . August 20, 2022</h5>
+          <h5 class="th-card-info">{{ popularPosts[0]?.updatedAt | date }}</h5>
         </div>
       </div>
     </div>
@@ -36,53 +38,43 @@
             recent
           </div>
         </div>
-        <div class="posts">
-          <div class="th-list-tile">
+        <div class="popular-posts" *ngIf="tabMode == 1">
+          <div
+            class="th-list-tile"
+            *ngFor="let post of popularPosts | slice: 1:popularPosts.length"
+          >
             <img
-              src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/aleksander-vlad-Jym19Ty9Dc4-unsplash-60x60.jpg"
-              alt=""
+              width="60"
+              height="60"
+              [src]="post.imagePath || post.ImagePath"
+              [alt]="post.title"
             />
             <div class="th-list-tile-text">
               <h4 class="th-list-tile-title">
-                3 Easy Ways To Make Your iPhone Faster
+                <a [routerLink]="'/blog/post/' + post?._id">
+                  {{ post.title }}
+                </a>
               </h4>
-              <h5 class="date">August 19, 2022</h5>
+              <h5 class="date">{{ post.updatedAt | date }}</h5>
             </div>
           </div>
-          <div class="th-list-tile">
+        </div>
+
+        <div class="recent-posts" *ngIf="tabMode == 2">
+          <div class="th-list-tile" *ngFor="let post of recentPosts">
             <img
-              src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/drop-the-label-movement-608463-unsplash-60x60.jpg"
-              alt=""
+              width="60"
+              height="60"
+              [src]="post.imagePath || post.ImagePath"
+              [alt]="post.title"
             />
             <div class="th-list-tile-text">
               <h4 class="th-list-tile-title">
-                Facts About Business That Will Help You Success
+                <a [routerLink]="'/blog/post/' + post?._id">
+                  {{ post.title }}
+                </a>
               </h4>
-              <h5 class="date">August 23, 2022</h5>
-            </div>
-          </div>
-          <div class="th-list-tile">
-            <img
-              src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/matt-le-112706-unsplash-60x60.jpg"
-              alt=""
-            />
-            <div class="th-list-tile-text">
-              <h4 class="th-list-tile-title">
-                15 Unheard Ways To Achieve Greater Walker
-              </h4>
-              <h5 class="date">August 23, 2022</h5>
-            </div>
-          </div>
-          <div class="th-list-tile">
-            <img
-              src="https://themeger.shop/wordpress/katen/wp-content/uploads/2022/08/grant-ritchie-1154815-unsplash-60x60.jpg"
-              alt=""
-            />
-            <div class="th-list-tile-text">
-              <h4 class="th-list-tile-title">
-                5 Easy Ways You Can Turn Future Into Success
-              </h4>
-              <h5 class="date">August 20, 2022</h5>
+              <h5 class="date">{{ post.updatedAt | date }}</h5>
             </div>
           </div>
         </div>
@@ -103,7 +95,7 @@
       <img [src]="post.imagePath || post.ImagePath" height="250"/>
       <div class="content">
         <div class="card-header-container">
-          <p>Posted On {{ post.date | date }}</p>
+          <p>Posted On {{ post.updatedAt | date }}</p>
           <h3>{{ post.title.toUpperCase() }}</h3>
         </div>
         <div class="description">
@@ -136,10 +128,12 @@
           <div class="th-card-text">
             <div class="th-card-info">
               <span>{{ post.category }}</span>
-              <span>{{ post.date | date }}</span>
+              <span>{{ post.updatedAt | date }}</span>
             </div>
             <div class="th-card-title">
-              <h3>{{ post.title }}</h3>
+              <a [routerLink]="'/blog/post/' + post?._id">
+                <h3>{{ post.title }}</h3>
+              </a>
             </div>
             <div class="th-card-discription">
               <span [innerHTML]="post.content"></span>

@@ -4,6 +4,9 @@
   border-radius: 15px;
 }
 
+a{
+  color: inherit;
+}
 
 
 .th-card-container {
@@ -33,6 +36,11 @@
 .th-card-container .img-container img:hover {
   transform: scale(1.08);
 }
+
+.th-card-container .th-card-text {
+  flex: 1;
+}
+
 
 .th-card-container .th-card-text .th-card-info {
   display: flex;
