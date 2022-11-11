@@ -106,7 +106,6 @@ export class PostsComponent implements OnInit, OnDestroy {
 
           const i = this.posts.findIndex((p) => p._id === id);
           this.posts[i].published = !publishState;
-          console.log(this.posts);
           this.posts = JSON.parse(JSON.stringify(this.posts));
           // location.reload();
           this.isLoading = false;

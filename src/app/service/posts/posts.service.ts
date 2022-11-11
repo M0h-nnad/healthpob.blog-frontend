@@ -55,7 +55,6 @@ export class PostsService {
     );
   }
   getPost(id, isReloaded) {
-    console.log(isReloaded);
     return this.http
       .get(this.POSTS_URL + '/' + id, { params: { isReloaded } })
       .pipe(

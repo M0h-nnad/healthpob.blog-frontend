@@ -132,7 +132,6 @@ export class DashboardComponent implements OnInit {
     this.viewChartOptions.series[0].data = [];
     let dashboard = {};
     const array = [];
-    console.log(this.dashboard.views);
     for (const obj of this.dashboard.views) {
       const oldVal = dashboard[obj.day];
       if (oldVal) {
@@ -141,7 +140,6 @@ export class DashboardComponent implements OnInit {
         dashboard[obj.day] = obj.num;
       }
     }
-    console.log(dashboard);
 
     for (const key in dashboard) {
       const data = {
@@ -166,7 +164,6 @@ export class DashboardComponent implements OnInit {
         dashboard[obj.day] = obj.num;
       }
     }
-    // console.log(dashboard);
 
     for (const key in dashboard) {
       const data = {

@@ -102,7 +102,6 @@ export class PostViewComponent implements OnInit, OnDestroy {
               category: res.post.category,
             });
             this.imageUrl = res.post.imagePath || res.post.ImagePath;
-            console.log(this.imageUrl);
             this.isLoading = false;
           },
           (error) => {
@@ -130,12 +129,10 @@ export class PostViewComponent implements OnInit, OnDestroy {
       date: new Date(),
       photo: this.postForm.controls['image'].value,
     };
-    console.log(typeof this.postReq.photo);
 
     for (let key in this.postReq) {
       if (key !== 'tags') {
         this.postFormData.append(key, this.postReq[key]);
-        console.log(key, this.postForm.get(key));
         continue;
       }
       this.postFormData.append('tags', JSON.stringify(this.tags));
@@ -144,7 +141,6 @@ export class PostViewComponent implements OnInit, OnDestroy {
   onImagePic(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     this.postForm.patchValue({ image: file });
-    console.log(file);
     this.postForm.get('image').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {

@@ -99,12 +99,10 @@ export class BlogPostsComponent implements OnInit, OnDestroy {
   }
 
   getAndAddHeaderPosts() {
-    console.log('workings');
     this.postService.getHeaderPosts().subscribe((res: any) => {
       this.popularPosts = res.popularPost;
       this.recentPosts = res.recentPost;
 
-    console.log(this.popularPosts);
 
     });
   }

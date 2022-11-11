@@ -45,7 +45,6 @@ export class BlogUserViewComponent implements OnInit, OnDestroy {
     this.userSubscription = this.authService.getUser(this.userId).subscribe(
       (res: any) => {
         this.user = res[0];
-        // console.log(this.user)
         this.isLoading = false;
         this.getPosts();
       },

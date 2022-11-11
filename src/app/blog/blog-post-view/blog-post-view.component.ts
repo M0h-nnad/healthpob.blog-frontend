@@ -36,7 +36,6 @@ export class BlogPostViewComponent implements OnInit, OnDestroy {
     if (typeof this.postId === undefined) {
       return this.Router.navigate['/blog/posts'];
     }
-    console.log(browserRefresh);
     this.isReloaded = browserRefresh;
     this.postSub = this.postService
       .getPost(this.postId, this.isReloaded)

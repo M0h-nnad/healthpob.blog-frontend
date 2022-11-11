@@ -30,13 +30,15 @@
       <div class="form-group">
         <div class="row">
           <div class="col">
-            <input
-              type="email"
-              placeholder="Email"
-              formControlName="email"
-              class="form-control"
-              autocomplete="false"
-            />
+            <div class="form-group">
+              <input
+                type="email"
+                placeholder="Email"
+                formControlName="email"
+                class="form-control"
+                autocomplete="false"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -44,92 +46,110 @@
       <div class="form-group">
         <div class="row">
           <div class="col">
-            <input
-              type="text"
-              placeholder="First Name"
-              formControlName="firstName"
-              class="form-control"
-            />
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="First Name"
+                formControlName="firstName"
+                class="form-control"
+              />
+            </div>
           </div>
           <div class="col">
-            <input
-              type="text"
-              placeholder="Last Name"
-              formControlName="lastName"
-              class="form-control"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="row">
-          <div class="col">
-            <input
-              type="number"
-              placeholder="Years of Experience"
-              formControlName="yearsOfExperience"
-              class="form-control"
-            />
-          </div>
-          <div class="col">
-            <input
-              type="text"
-              placeholder="Speacialty"
-              formControlName="specialty"
-              class="form-control"
-            />
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Last Name"
+                formControlName="lastName"
+                class="form-control"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div class="form-group">
         <div class="row">
           <div class="col">
-            <input
-              type="text"
-              placeholder="Facebook Link"
-              formControlName="facebookLink"
-              class="form-control"
-            />
+            <div class="form-group">
+              <input
+                type="number"
+                placeholder="Years of Experience"
+                formControlName="yearsOfExperience"
+                class="form-control"
+              />
+            </div>
           </div>
           <div class="col">
-            <input
-              type="text"
-              placeholder="Instagram Link"
-              formControlName="instagramLink"
-              class="form-control"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="row">
-          <div class="col">
-            <input
-              type="text"
-              placeholder="Twitter Link"
-              formControlName="twitterLink"
-              class="form-control"
-            />
-          </div>
-          <div class="col">
-            <input
-              type="text"
-              placeholder="Your Website Link"
-              formControlName="websiteLink"
-              class="form-control"
-            />
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Speacialty"
+                formControlName="specialty"
+                class="form-control"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div class="form-group">
         <div class="row">
           <div class="col">
-            <textarea
-              class="form-control"
-              formControlName="bio"
-              placeholder="Your Bio"
-              style="height: 200px"
-            ></textarea>
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Facebook Link"
+                formControlName="facebookLink"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Instagram Link"
+                formControlName="instagramLink"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Twitter Link"
+                formControlName="twitterLink"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Your Website Link"
+                formControlName="websiteLink"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                formControlName="bio"
+                placeholder="Your Bio"
+                style="height: 200px"
+              ></textarea>
+            </div>
           </div>
         </div>
       </div>
@@ -140,7 +160,7 @@
   </form>
 </div>
 <div class="container-sm mt-2">
-  <h3 class="text-center">Change Password</h3>
+  <h3 class="text-center" *ngIf="isPassword">Change Password</h3>
   <form
     [formGroup]="passwordChangeForm"
     *ngIf="isPassword"
@@ -180,12 +200,14 @@
         >
       </div>
     </div>
-    <button
-      type="submit"
-      [disabled]="passwordChangeForm.invalid"
-      class="btn btn-info"
-    >
-      Change Password
-    </button>
+    <div class="row">
+      <button
+        type="submit"
+        [disabled]="passwordChangeForm.invalid"
+        class="btn btn-info"
+      >
+        Change Password
+      </button>
+    </div>
   </form>
 </div>

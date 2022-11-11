@@ -58,7 +58,6 @@ export class UserViewComponent implements OnInit, OnDestroy {
   }
   addUserInformation() {
     this.user = this.authService.getUserDoc();
-    console.log(this.user)
     this.userId = this.user._id.toString();
     this.UserFrom.patchValue({
       email: this.user.email,
@@ -67,10 +66,10 @@ export class UserViewComponent implements OnInit, OnDestroy {
       yearsOfExperience: this.user.yearsOfExperience,
       specialty: this.user.specialty,
       bio: this.user?.bio,
-      facebookLink: this.user.facebookLink,
-      instagramLink: this.user.instagramLink,
-      twitterLink: this.user.twitterLink,
-      websiteLink: this.user.websiteLink,
+      facebookLink: this.user.facebookLink ? this.user.facebookLink : '',
+      instagramLink: this.user.instagramLink ? this.user.instagramLink : '',
+      twitterLink: this.user.twitterLink ? this.user.twitterLink : '',
+      websiteLink: this.user.websiteLink ? this.user.websiteLink : '',
     });
     this.imageUrl = this.user.imagePath;
     this.isLoading = false;
@@ -105,8 +104,6 @@ export class UserViewComponent implements OnInit, OnDestroy {
     for (let key in this.userReq) {
       UserFormDate.append(key, this.userReq[key]);
     }
-    console.log(this.UserFrom.controls['image'].value);
-    debugger;
     this.updateSubs = this.authService
       .updateUser(this.userId, UserFormDate)
       .subscribe(
@@ -136,7 +133,6 @@ export class UserViewComponent implements OnInit, OnDestroy {
       },
       { validator: this.mustMatch('newPassword', 'confirmNewPassword') }
     );
-    console.log(this.passwordChangeForm);
   }
 
   get f() {
@@ -149,16 +145,19 @@ export class UserViewComponent implements OnInit, OnDestroy {
       newPassword: this.f.newPassword.value,
       oldPassword: this.f.oldPassword.value,
     };
-    this.authService.updatePassword(passObject).subscribe((res:{message})=>{
-     this._snackbar.open(res.message,null,{
-       duration:5000
-     });
-     this.router.navigate(['/system/posts']);
-    },err=>{
-      this._snackbar.open(err.error.message, null, {
-        duration:5000
-      })
-    })
+    this.authService.updatePassword(passObject).subscribe(
+      (res: { message }) => {
+        this._snackbar.open(res.message, null, {
+          duration: 5000,
+        });
+        this.router.navigate(['/system/posts']);
+      },
+      (err) => {
+        this._snackbar.open(err.error.message, null, {
+          duration: 5000,
+        });
+      }
+    );
   }
 
   mustMatch(controlName: string, ComparedOne: string): any {

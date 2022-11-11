@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {
     this.subscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        console.log(this.router);
         this.isReloaded = !this.router.navigated;
       }
     });

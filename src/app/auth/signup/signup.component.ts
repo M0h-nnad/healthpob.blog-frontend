@@ -62,7 +62,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.initReq();
     this.authService.signUp(this.userData).subscribe(
       (Response: any) => {
-        console.log(Response.headers.get('token'));
         if (Response.headers.get('token')) {
           this.authService.isAuthlistener.next(true);
           this.authService.isAuth = true;
